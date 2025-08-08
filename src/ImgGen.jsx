@@ -1,9 +1,10 @@
-import React, { useState } from "react";
 import styles from "./AIImageGenerator.module.css";
 import Header from "./components/Header";
 import GeneratorForm from "./components/GeneratorForm.jsx";
 import ImageGrid from "./components/ImageGrid.jsx";
-import StatusMessage from "./components/StatusMessage.jsx";
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   samplePrompts,
   generateImageURLs,
@@ -17,24 +18,18 @@ const AIImageGenerator = () => {
   const [quality, setQuality] = useState("standard");
   const [count, setCount] = useState(1);
   const [isGenerating, setIsGenerating] = useState(false);
-  const [statusMessage, setStatusMessage] = useState(null);
+
   const [images, setImages] = useState([]);
 
   const generateImages = () => {
     if (!prompt.trim()) {
-      setStatusMessage({
-        type: "error",
-        message: "Please enter a description for your image.",
-      });
+      toast.error("Please enter a description for your image.");
       return;
     }
 
     setIsGenerating(true);
     setImages([]);
-    setStatusMessage({
-      type: "info",
-      message: "Generating your images... This may take a few moments.",
-    });
+    toast.info("Generating your images... This may take a few moments.");
 
     setTimeout(() => {
       const newImages = generateImageURLs(
@@ -46,12 +41,9 @@ const AIImageGenerator = () => {
       );
       setImages(newImages);
       setIsGenerating(false);
-      setStatusMessage({
-        type: "success",
-        message: `Successfully generated ${count} image${
-          count > 1 ? "s" : ""
-        }!`,
-      });
+      toast.success(
+        `Successfully generated ${count} image${count > 1 ? "s" : ""}!`
+      );
     }, 2000);
   };
 
@@ -79,12 +71,19 @@ const AIImageGenerator = () => {
           <h2>Generated Images</h2>
         </div>
 
-        {statusMessage && (
-          <StatusMessage
-            type={statusMessage.type}
-            message={statusMessage.message}
-          />
-        )}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          className="toast-container"
+        />
 
         <ImageGrid images={images} downloadImage={downloadImage} />
       </div>
