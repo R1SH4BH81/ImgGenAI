@@ -26,6 +26,7 @@ const ImageGrid = ({ images, downloadImage }) => {
             onLoad={() => handleImageLoad(index)}
           />
           <div className={styles.imageInfo}>
+            {/* <div className={styles.imagePrompt}>"{img.prompt}"</div> */}
             <div className={styles.imageDetails}>
               <span>{img.resolution}</span>
               <span>{img.style} style</span>
