@@ -1,5 +1,4 @@
 .container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0.5rem;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -15,6 +14,29 @@
   align-items: center; /* Center content horizontally */
   justify-content: space-between; /* Distribute content vertically */
   overflow: hidden; /* Hide scrollbars */
+}
+.container {
+  width: 100vw;
+  height: 100%;
+
+  background: #000000;
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.2);
+
+  background-image: linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    );
+  background-size: var(--gap) var(--gap);
 }
 
 /* For Webkit browsers (Chrome, Safari) */

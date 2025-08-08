@@ -2,7 +2,7 @@ import styles from "./AIImageGenerator.module.css";
 import Header from "./components/Header";
 import GeneratorForm from "./components/GeneratorForm.jsx";
 import ImageGrid from "./components/ImageGrid.jsx";
-import Footer from "./components/Footer.jsx";
+
 import React, { useState } from "react";
 import Toast from "./components/Toast.jsx";
 
