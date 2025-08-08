@@ -566,7 +566,7 @@
 }
 
 .imageInfo {
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -582,7 +582,7 @@
 
 .imageDetails {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #000000;
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
