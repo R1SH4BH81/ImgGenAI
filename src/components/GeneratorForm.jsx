@@ -104,15 +104,17 @@ const GeneratorForm = ({
         </div>
       </div>
 
-      <button
-        className="button"
-        onClick={generateImages}
-        disabled={isGenerating}
-      >
-        <div className="dots_border"></div>
+      <div className={styles.imageActions}>
+        <button
+          className="button"
+          onClick={generateImages}
+          disabled={isGenerating}
+        >
+          <div className="dots_border"></div>
 
-        <span className="text_button">Generate Image</span>
-      </button>
+          <span className="text_button">Generate Image</span>
+        </button>
+      </div>
     </div>
   );
 };

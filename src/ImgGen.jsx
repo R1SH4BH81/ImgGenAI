@@ -39,7 +39,7 @@ const AIImageGenerator = () => {
 
     setIsGenerating(true);
     setImages([]);
-    showToast("Generating your images... This may take a few moments.", "info");
+    showToast("Generating your images... ", "info");
 
     setTimeout(() => {
       const newImages = generateImageURLs(
@@ -78,10 +78,6 @@ const AIImageGenerator = () => {
       />
 
       <div className={styles.resultsSection}>
-        <div className={styles.resultsHeader}>
-          <h2>Generated Images</h2>
-        </div>
-
         <ImageGrid images={images} downloadImage={downloadImage} />
         {toastMessage && (
           <Toast

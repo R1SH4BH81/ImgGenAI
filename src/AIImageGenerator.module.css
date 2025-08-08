@@ -10,7 +10,7 @@
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   align-items: center; /* Center content horizontally */
   justify-content: space-between; /* Distribute content vertically */
@@ -155,7 +155,7 @@
 
 .generatorSection {
   background: white;
-  padding: 0.7rem;
+  padding: 1rem;
   border-radius: 20px;
   margin-bottom: 2rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -165,7 +165,7 @@
 
 @media (max-width: 768px) {
   .generatorSection {
-    padding: 0.5rem;
+    padding: 0.9rem;
   }
 }
 
@@ -528,18 +528,8 @@
   margin-top: auto; /* Pushes details to the bottom */
 }
 
-.imageActions button {
-  background-color: #4f46e5;
-  color: white;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-}
-
-.imageActions button:hover {
-  background-color: #6d28d9;
+.imageActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
 }
