@@ -11,8 +11,9 @@
   line-height: 1.6;
   padding: 10px;
   box-sizing: border-box;
+
   align-items: center; /* Center content horizontally */
-  justify-content: space-between; /* Distribute content vertically */
+  /* Distribute content vertically */
   overflow: hidden; /* Hide scrollbars */
 }
 .container {
@@ -163,7 +164,7 @@
 
 .header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .header h1 {
@@ -197,7 +198,7 @@
   padding: 1rem;
   border-radius: 20px;
 
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 1100px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -514,7 +515,7 @@
 .imageGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
+  gap: 1rem;
   max-width: 1200px;
 }
 
