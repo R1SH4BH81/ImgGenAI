@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../AIImageGenerator.module.css";
 import "./styles/save.css";
 
 const ImageGrid = ({ images, downloadImage }) => {
+  const [imageLoading, setImageLoading] = useState({});
+
+  const handleImageLoad = (index) => {
+    setImageLoading((prev) => ({ ...prev, [index]: false }));
+  };
+
   return (
     <div className={styles.imageGrid}>
       {images.map((img, index) => (
         <div className={styles.imageCard} key={index}>
+          {imageLoading[index] !== false && (
+            <div className={styles.imageLoading}>Loading...</div>
+          )}
           <img
             src={img.url}
             alt={img.prompt}
-            className={styles.generatedImage}
+            className={`${styles.generatedImage} ${imageLoading[index] !== false ? styles.hidden : ''}`}
             loading="lazy"
+            onLoad={() => handleImageLoad(index)}
           />
           <div className={styles.imageInfo}>
             <div className={styles.imagePrompt}>"{img.prompt}"</div>
