@@ -2,9 +2,10 @@ import styles from "./AIImageGenerator.module.css";
 import Header from "./components/Header";
 import GeneratorForm from "./components/GeneratorForm.jsx";
 import ImageGrid from "./components/ImageGrid.jsx";
+import Footer from "./components/Footer.jsx";
 import React, { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Toast from "./components/Toast.jsx";
+
 import {
   samplePrompts,
   generateImageURLs,
@@ -12,6 +13,15 @@ import {
 } from "./utils/helpers";
 
 const AIImageGenerator = () => {
+  const [toastMessage, setToastMessage] = useState(null);
+
+  const showToast = (message, type) => {
+    setToastMessage({ message, type, id: Date.now() });
+  };
+
+  const clearToast = () => {
+    setToastMessage(null);
+  };
   const [prompt, setPrompt] = useState("");
   const [style, setStyle] = useState("realistic");
   const [resolution, setResolution] = useState("512x512");
@@ -23,13 +33,13 @@ const AIImageGenerator = () => {
 
   const generateImages = () => {
     if (!prompt.trim()) {
-      toast.error("Please enter a description for your image.");
+      showToast("Please enter a description for your image.", "error");
       return;
     }
 
     setIsGenerating(true);
     setImages([]);
-    toast.info("Generating your images... This may take a few moments.");
+    showToast("Generating your images... This may take a few moments.", "info");
 
     setTimeout(() => {
       const newImages = generateImageURLs(
@@ -41,8 +51,9 @@ const AIImageGenerator = () => {
       );
       setImages(newImages);
       setIsGenerating(false);
-      toast.success(
-        `Successfully generated ${count} image${count > 1 ? "s" : ""}!`
+      showToast(
+        `Successfully generated ${count} image${count > 1 ? "s" : ""}!`,
+        "success"
       );
     }, 2000);
   };
@@ -71,21 +82,15 @@ const AIImageGenerator = () => {
           <h2>Generated Images</h2>
         </div>
 
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-          className="toast-container"
-        />
-
         <ImageGrid images={images} downloadImage={downloadImage} />
+        {toastMessage && (
+          <Toast
+            key={toastMessage.id}
+            message={toastMessage.message}
+            type={toastMessage.type}
+            onClose={clearToast}
+          />
+        )}
       </div>
     </div>
   );

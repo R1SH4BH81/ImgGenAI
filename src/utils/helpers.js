@@ -4,6 +4,21 @@ export const samplePrompts = [
   "An ancient Japanese temple surrounded by cherry blossoms in full bloom",
   "A steampunk airship floating above a Victorian city at sunset",
   "A magical forest with glowing mushrooms and ethereal light filtering through the trees",
+  "A bustling cyberpunk city at night with neon signs and flying vehicles",
+  "A serene Japanese garden with a koi pond and traditional tea house",
+  "An astronaut exploring a vibrant alien planet with exotic flora and fauna",
+  "A medieval castle perched on a cliff overlooking a stormy sea",
+  "A whimsical treehouse village nestled in a giant ancient tree",
+  "A futuristic laboratory with glowing experiments and advanced machinery",
+  "A cozy cabin in a snowy forest with smoke rising from the chimney",
+  "A vibrant coral reef teeming with colorful fish and marine life",
+  "A desert oasis with palm trees, a clear spring, and ancient ruins",
+  "A bustling marketplace in a fantasy world with diverse creatures and magical artifacts",
+  "A tranquil lakeside scene at sunrise with mist rising from the water",
+  "A powerful dragon soaring over a volcanic landscape",
+  "A hidden waterfall in a lush jungle with exotic birds",
+  "A futuristic cityscape with towering skyscrapers and sky bridges",
+  "A peaceful meadow filled with wildflowers and butterflies",
 ];
 
 export const generateImageURLs = (
