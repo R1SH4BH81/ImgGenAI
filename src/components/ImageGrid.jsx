@@ -19,12 +19,13 @@ const ImageGrid = ({ images, downloadImage }) => {
           <img
             src={img.url}
             alt={img.prompt}
-            className={`${styles.generatedImage} ${imageLoading[index] !== false ? styles.hidden : ''}`}
+            className={`${styles.generatedImage} ${
+              imageLoading[index] !== false ? styles.hidden : ""
+            }`}
             loading="lazy"
             onLoad={() => handleImageLoad(index)}
           />
           <div className={styles.imageInfo}>
-            <div className={styles.imagePrompt}>"{img.prompt}"</div>
             <div className={styles.imageDetails}>
               <span>{img.resolution}</span>
               <span>{img.style} style</span>
