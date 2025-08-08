@@ -20,10 +20,10 @@
   width: 100vw;
   height: 100%;
 
-  background: #000000;
+  background: #fff;
   --gap: 5em;
   --line: 1px;
-  --color: rgba(255, 255, 255, 0.2);
+  --color: rgba(0, 0,0, 0.4);
 
   background-image: linear-gradient(
       -90deg,
