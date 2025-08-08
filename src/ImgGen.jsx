@@ -60,8 +60,6 @@ const AIImageGenerator = () => {
 
   return (
     <div className={styles.container}>
-      <Header />
-
       <GeneratorForm
         prompt={prompt}
         setPrompt={setPrompt}

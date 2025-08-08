@@ -1,7 +1,7 @@
 .container {
   margin: 0 auto;
   padding: 0.5rem;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Outfit";
   color: #1a1a1a;
   min-height: 100vh;
   display: flex;
@@ -162,26 +162,41 @@
 @media (max-width: 768px) {
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 1rem;
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  border-radius: 1rem;
+  animation: fadeIn 1.2s ease-in-out;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin: 20px;
 }
 
-.header h1 {
-  font-size: 2.75rem;
-  margin-bottom: 0.75rem;
-  background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
   -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  line-height: 1.2;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
 }
 
-.header p {
-  font-size: 1.1rem;
-  color: #64748b;
-  max-width: 600px;
-  margin: 0 auto;
+.title:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
@@ -195,7 +210,9 @@
 
 .generatorSection {
   background: white;
+  animation: fadeIn 1.2s ease-in-out;
   padding: 1rem;
+  margin-top: 20vh;
   border-radius: 20px;
 
   margin-bottom: 1rem;
@@ -207,8 +224,8 @@
 
 @media (max-width: 768px) {
   .generatorSection {
-    padding: 0.9rem;
-    width: 94%;
+    width: 92%;
+    margin-top: 5vh;
   }
 }
 
@@ -245,7 +262,7 @@
 
 .controls {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
