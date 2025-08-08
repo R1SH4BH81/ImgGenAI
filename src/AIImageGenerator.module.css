@@ -1,0 +1,172 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.generatorSection {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.promptInput {
+  width: 100%;
+  height: 80px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.controlGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.controlInput {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.generateBtn {
+  padding: 0.75rem 1.5rem;
+  background-color: #4f46e5;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.generateBtn:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
+
+.resultsSection {
+  margin-top: 2rem;
+}
+
+.resultsHeader h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.statusMessage {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.statusInfo {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.statusSuccess {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.statusError {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.imageCard {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.generatedImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.imageInfo {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.imagePrompt {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.imageDetails {
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.imageActions button {
+  background-color: #22c55e;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.imageActions button:hover {
+  background-color: #16a34a;
+}
