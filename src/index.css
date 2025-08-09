@@ -19,7 +19,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #fbfeff;
+  background-color: #000;
   justify-content: center; /* Added to center horizontally */
   align-items: center; /* Added to center vertically */
 }
