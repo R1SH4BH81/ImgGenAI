@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: flex-end;
 }
-.displayName img {
+.displayName {
   height: 30px;
   width: auto;
 }
@@ -31,4 +31,8 @@
   padding-right: -20px;
 
   cursor: pointer;
+}
+.user-avatar {
+  height: 30px;
+  width: auto;
 }
