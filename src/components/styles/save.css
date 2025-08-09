@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  z-index: 2;
+
   transition-duration: 0.3s;
 }
 

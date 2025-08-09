@@ -13,9 +13,6 @@ const ImageGrid = ({ images, downloadImage }) => {
     <div className={styles.imageGrid}>
       {images.map((img, index) => (
         <div className={styles.imageCard} key={index}>
-          {imageLoading[index] !== false && (
-            <div className={styles.imageLoading}>Loading...</div>
-          )}
           <img
             src={img.url}
             alt={img.prompt}
@@ -25,6 +22,9 @@ const ImageGrid = ({ images, downloadImage }) => {
             loading="lazy"
             onLoad={() => handleImageLoad(index)}
           />
+          {imageLoading[index] !== false && (
+            <div className={styles.imageLoading}>Loading...</div>
+          )}
           <div className={styles.imageInfo}>
             {/* <div className={styles.imagePrompt}>"{img.prompt}"</div> */}
             <div className={styles.imageDetails}>
