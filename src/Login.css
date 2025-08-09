@@ -105,3 +105,82 @@ button:hover {
   font-weight: 600;
   color: #fff;
 }
+
+.info-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.info-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.main-image-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.main-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.main-image {
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.made-using {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.info-heading {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  max-width: 900px;
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+}
+.info-container {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  color: #000000;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info-block {
+  flex: 1;
+}
+
+.info-block h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.info-block p {
+  line-height: 1.5;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+/* Responsive: Stack on smaller screens */
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
