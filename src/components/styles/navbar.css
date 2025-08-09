@@ -1,0 +1,13 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+}
+
+.navbar-logo img {
+  height: 30px;
+  width: auto;
+}

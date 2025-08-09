@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../AIImageGenerator.module.css";
 
 const Footer = () => {
@@ -7,7 +6,6 @@ const Footer = () => {
       <div className={styles.footerCenter}>
         <span>Made with ❤️</span>
       </div>
-      <div className={styles.footerRight}></div>
     </footer>
   );
 };

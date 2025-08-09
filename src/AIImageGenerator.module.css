@@ -20,10 +20,10 @@
   width: 100vw;
   height: 100%;
 
-  background: #fff;
+  background: #fbfeff;
   --gap: 5em;
   --line: 1px;
-  --color: rgba(0, 0,0, 0.4);
+  --color: rgba(0, 0, 0, 0.4);
 
   background-image: linear-gradient(
       -90deg,
@@ -54,14 +54,9 @@
 .footer {
   width: 100%;
   padding: 20px;
-  background-color: var(--secondary-background-color);
-  border-top: 1px solid var(--border-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
-  border-radius: 12px;
-  box-shadow: var(--shadow-elevation-low);
+
+  bottom: 0;
+  position: fixed;
 }
 
 .footerLeft,
