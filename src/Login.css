@@ -1,15 +1,17 @@
 .container {
   width: 100vw;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  position: relative; /* Needed for absolute overlay */
+  overflow: hidden; /* Hide overlay edges */
+
   /* Pattern variables */
-  --u: 20px; /* change block size */
-  --hue: hue-rotate(0deg); /* change color hue */
+  --u: 20px;
+  --hue: hue-rotate(0deg);
   --c1: #92472f;
   --c2: #d2562f;
   --c3: #ffbc58;
@@ -73,6 +75,24 @@
       )
       var(--gp);
 }
+
+/* Blur overlay for entire container */
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15); /* Transparent overlay */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 0; /* Behind content */
+}
+
+/* Make sure actual content is above blur */
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
 button {
   max-width: 320px;
   display: flex;
@@ -103,7 +123,13 @@ button:hover {
 .title {
   font-size: clamp(2rem, 5vw, 7rem);
   font-weight: 600;
-  color: #fff;
+  color: #000000;
+  background: rgba(255, 255, 255, 0.01); /* Semi-transparent so blur shows */
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(2px); /* Safari support */
+
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
 }
 
 .info-container {
