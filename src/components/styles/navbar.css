@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: flex-end;
 }
-.displayName {
+.displayName img {
   height: 30px;
   width: auto;
 }
