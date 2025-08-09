@@ -1,8 +1,9 @@
-import React from "react";
+import { getAuth, signOut } from "firebase/auth";
 import "./styles/navbar.css";
-import { signOut } from "../firebase";
 
 export default function Navbar({ user, avatar, setUser }) {
+  const auth = getAuth();
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -18,7 +19,7 @@ export default function Navbar({ user, avatar, setUser }) {
           />
           <button
             className="logout-btn"
-            onClick={() => signOut().then(() => setUser(null))}
+            onClick={() => signOut(auth).then(() => setUser(null))}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
