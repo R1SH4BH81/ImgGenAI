@@ -6,9 +6,7 @@ export default function Navbar({ user, avatar, setUser }) {
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <div>✨</div>
-      </div>
+      <div className="navbar-logo">✨</div>
 
       {user && (
         <div className="navbar-user">
