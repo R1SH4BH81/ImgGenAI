@@ -120,6 +120,24 @@ button:hover {
 .main-image-section {
   text-align: center;
   padding: 20px;
+  background: #000000;
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.2);
+
+  background-image: linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    );
+  background-size: var(--gap) var(--gap);
 }
 
 .main-image-container {
@@ -145,7 +163,7 @@ button:hover {
   margin-top: 15px;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #222;
+  color: #ffffff;
   max-width: 900px;
   margin-left: auto;
   text-align: center;
@@ -155,7 +173,7 @@ button:hover {
   display: flex;
   gap: 40px;
   margin-top: 40px;
-  color: #000000;
+  color: #ccc;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
