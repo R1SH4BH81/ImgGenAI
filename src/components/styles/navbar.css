@@ -1,5 +1,9 @@
 .navbar {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   position: fixed;
   top: 0;
   background-color: white;
@@ -10,4 +14,21 @@
 .navbar-logo img {
   height: 30px;
   width: auto;
+}
+.navbar-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.displayName {
+  height: 30px;
+  width: auto;
+}
+.logout-btn {
+  background: none;
+  border: none;
+  margin-left: -10px;
+  padding-right: -20px;
+
+  cursor: pointer;
 }

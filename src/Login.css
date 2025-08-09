@@ -101,7 +101,7 @@ button:hover {
   transform: scale(1.02);
 }
 .title {
-  font-size: 7rem;
+  font-size: clamp(2rem, 5vw, 7rem);
   font-weight: 600;
   color: #fff;
 }

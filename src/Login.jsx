@@ -1,16 +1,37 @@
-// Login.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { auth, provider, signInWithPopup, db } from "./firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 import "./Login.css";
 
 export default function Login({ setUser }) {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        // If user exists in Firestore, setUser directly
+        const userRef = doc(db, "users", firebaseUser.uid);
+        const docSnap = await getDoc(userRef);
+
+        if (!docSnap.exists()) {
+          await setDoc(userRef, {
+            name: firebaseUser.displayName,
+            email: firebaseUser.email,
+            avatar: firebaseUser.photoURL,
+          });
+        }
+
+        setUser(firebaseUser); // Skip login UI
+      }
+    });
+
+    return () => unsubscribe();
+  }, [setUser]);
+
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const firebaseUser = result.user;
 
-      // Save user in Firestore
       const userRef = doc(db, "users", firebaseUser.uid);
       const docSnap = await getDoc(userRef);
 
@@ -18,11 +39,10 @@ export default function Login({ setUser }) {
         await setDoc(userRef, {
           name: firebaseUser.displayName,
           email: firebaseUser.email,
-          avatar: firebaseUser.photoURL, // save avatar here
+          avatar: firebaseUser.photoURL,
         });
       }
 
-      // Set the local user state
       setUser(firebaseUser);
     } catch (error) {
       console.error("Login error:", error);
@@ -32,7 +52,6 @@ export default function Login({ setUser }) {
   return (
     <div className="container">
       <div className="title">AI Image Generator</div>
-
       <button className="button" onClick={handleGoogleLogin}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
