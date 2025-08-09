@@ -78,10 +78,6 @@ export default function Login({ setUser }) {
         <button
           className="button"
           onClick={handleGoogleLogin}
-          onMouseEnter={(e) => (
-            (e.currentTarget.style.backgroundColor = "#4285F4"),
-            (e.currentTarget.style.color = "#fff")
-          )}
           onMouseLeave={(e) => (
             (e.currentTarget.style.backgroundColor = "#fff"),
             (e.currentTarget.style.color = "#000")
