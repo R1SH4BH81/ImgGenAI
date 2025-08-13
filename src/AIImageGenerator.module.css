@@ -86,14 +86,15 @@
   padding: 5px 10px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
+  gap: 1px;
   font-size: 16px;
   z-index: 1000;
   opacity: 0;
   animation: fadeIn 0.3s forwards;
+  white-space: nowrap;
 }
 
 .toast.success {
