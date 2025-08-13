@@ -8,17 +8,19 @@ import Footer from "./components/Footer.jsx";
 import Login from "./Login.jsx";
 import { generateImageURLs, downloadImage } from "./utils/helpers";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db, saveImageHistory } from "./firebase";
+import HistoryOverlay from "./components/History.jsx";
 
 const AIImageGenerator = () => {
   const [avatar, setAvatar] = useState("");
-  const [user, setUser] = useState(null); // <-- added
+  const [user, setUser] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
 
   const showToast = (message, type) => {
     setToastMessage({ message, type, id: Date.now() });
   };
   const clearToast = () => setToastMessage(null);
+
   useEffect(() => {
     const fetchAvatar = async () => {
       if (user) {
@@ -60,14 +62,27 @@ const AIImageGenerator = () => {
       );
       setImages(newImages);
       setIsGenerating(false);
+
       showToast(
         `Successfully generated ${count} image${count > 1 ? "s" : ""}!`,
         "success"
       );
+
+      if (user?.uid) {
+        newImages.forEach((image) => {
+          saveImageHistory(user.uid, {
+            ...image,
+            prompt,
+            style,
+            resolution,
+            quality,
+          });
+          console.log(`Image saved for user ${user.uid}:`, image);
+        });
+      }
     }, 2000);
   };
 
-  // If user is not logged in, show login page
   if (!user) {
     return <Login setUser={setUser} showToast={showToast} />;
   }
@@ -104,6 +119,7 @@ const AIImageGenerator = () => {
           )}
         </div>
       </div>
+
       <Footer />
     </>
   );

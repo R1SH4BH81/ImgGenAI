@@ -5,7 +5,7 @@ import {
   signOut,
   signInWithPopup, // <-- added this
 } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -24,3 +24,15 @@ export const provider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 export { signOut, signInWithPopup }; // <-- export both
+
+export const saveImageHistory = async (userId, imageData) => {
+  try {
+    await addDoc(collection(db, "history", userId, "images"), {
+      ...imageData,
+      timestamp: new Date(),
+    });
+    console.log("Image history saved successfully!");
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};

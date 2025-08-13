@@ -1,0 +1,128 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.historyBox {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.historyTitle {
+  color: #212121;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.closeBtn {
+  position: absolute;
+  top: 8px; /* slightly lower to avoid sticking to edge */
+  right: 8px; /* keep it close to right corner */
+  background: transparent;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .closeBtn {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.historyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.saveWrapper {
+  display: flex;
+  justify-content: flex-end; /* pushes to the right */
+  margin-top: auto; /* pushes it to bottom in case of vertical flex */
+}
+
+.historyCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.historyImage {
+  width: 100%;
+  height: 200px; /* bigger images */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.prompt {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #000;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.saveBtn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.loadMore {
+  background: #444;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.endText {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.loadingText {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 15px;
+}
+@media (max-width: 600px) {
+  .historyGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+  }
+}

@@ -1,20 +1,32 @@
 import { getAuth, signOut } from "firebase/auth";
 import "./styles/navbar.css";
+import { useState } from "react";
+import HistoryOverlay from "./History";
 
 export default function Navbar({ user, avatar, setUser }) {
+  const [showHistory, setShowHistory] = useState(false);
   const auth = getAuth();
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo">✨</div>
+      <img
+        src={avatar || "/default-avatar.png"}
+        title={user.displayName}
+        className="user-avatar"
+      />
+
+      {showHistory && (
+        <HistoryOverlay
+          userId={user.uid}
+          onClose={() => setShowHistory(false)}
+        />
+      )}
 
       {user && (
         <div className="navbar-user">
-          <img
-            src={avatar || "/default-avatar.png"}
-            title={user.displayName}
-            className="user-avatar"
-          />
+          <div className="navbar-logo" onClick={() => setShowHistory(true)}>
+            History
+          </div>
           <button
             className="logout-btn"
             onClick={() => signOut(auth).then(() => setUser(null))}
